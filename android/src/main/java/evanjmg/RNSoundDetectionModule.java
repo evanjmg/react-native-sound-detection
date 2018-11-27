@@ -20,7 +20,7 @@ public class RNSoundDetectionModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void getAudioTracks(String path, final Callback cb) {
+  public void getTracks(String path, final Callback cb) {
     try {
       MediaPlayer mediaPlayer = new MediaPlayer();
       mediaPlayer.setDataSource(path);

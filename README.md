@@ -1,7 +1,7 @@
 
 # react-native-sound-detection
 
-This library simply detects whether audio tracks exist on a media file in Android React Native.
+This library simply detects whether tracks exist on a media file (Video/Mp3/etc) in Android React Native.
 
 ## Getting started
 
@@ -34,7 +34,7 @@ This library simply detects whether audio tracks exist on a media file in Androi
 ```javascript
 import RNSoundDetection from 'react-native-sound-detection';
 // use a remote or local url
-RNSoundDetection.getAudioTracks('https://video.com.mp4', (audioTracks) => {
-	console.log(audioTracks)
+RNSoundDetection.geTracks('https://video.com.mp4', (tracks) => {
+	console.log(tracks) // includes video and audio tracks
 })
 ```
