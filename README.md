@@ -34,7 +34,7 @@ This library simply detects whether tracks exist on a media file (Video/Mp3/etc)
 ```javascript
 import RNSoundDetection from 'react-native-sound-detection';
 // use a remote or local url
-RNSoundDetection.geTracks('https://video.com.mp4', (tracks) => {
+RNSoundDetection.getTracks('https://video.com.mp4', (tracks) => {
 	console.log(tracks) // includes video and audio tracks
 })
 ```
