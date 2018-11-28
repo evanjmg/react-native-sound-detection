@@ -29,7 +29,6 @@ public class RNSoundDetectionModule extends ReactContextBaseJavaModule {
 
       @Override
           public void onPrepared(MediaPlayer mp) {
-            Log.i(ON_PREPARED, "prepared**************************************");
             try {
               MediaPlayer.TrackInfo[] tracks = mp.getTrackInfo();
               Gson gson = new Gson();
