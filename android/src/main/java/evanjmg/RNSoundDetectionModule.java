@@ -9,11 +9,12 @@ import android.media.MediaPlayer;
 import android.media.AudioManager;
 import java.io.IOException;
 import com.google.gson.Gson;
+import android.util.Log;
 
 public class RNSoundDetectionModule extends ReactContextBaseJavaModule {
 
   private final ReactApplicationContext reactContext;
-
+  private static final String ON_PREPARED = "OnPreparedEvent";
   public RNSoundDetectionModule(ReactApplicationContext reactContext) {
     super(reactContext);
     this.reactContext = reactContext;
@@ -28,6 +29,7 @@ public class RNSoundDetectionModule extends ReactContextBaseJavaModule {
 
       @Override
           public void onPrepared(MediaPlayer mp) {
+            Log.i(ON_PREPARED, "prepared**************************************");
             try {
               MediaPlayer.TrackInfo[] tracks = mp.getTrackInfo();
               Gson gson = new Gson();
@@ -38,7 +40,7 @@ public class RNSoundDetectionModule extends ReactContextBaseJavaModule {
 
           }
       });
-      mediaPlayer.prepare();
+      mediaPlayer.prepareAsync();
     } catch (IOException e) {
       cb.invoke(e.toString(), null);
     }
