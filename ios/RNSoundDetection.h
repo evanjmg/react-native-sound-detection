@@ -8,4 +8,3 @@
 @interface RNSoundDetection : NSObject <RCTBridgeModule>
 
 @end
-  

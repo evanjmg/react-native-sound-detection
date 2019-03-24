@@ -1,7 +1,7 @@
 
 # react-native-sound-detection
 
-This library simply detects whether tracks exist on a media file (Video/Mp3/etc) in Android React Native.
+This library simply gets the audio/video tracks and their type. This is to detect whether they exist on a media file (Video/Mp3/etc) in Android and iOS React Native.
 
 ## Getting started
 
@@ -13,7 +13,7 @@ This library simply detects whether tracks exist on a media file (Video/Mp3/etc)
 
 ### Manual installation
 
-#### iOS (WIP!! - see android)
+#### iOS
 
 1. In XCode, in the project navigator, right click `Libraries` ➜ `Add Files to [your project's name]`
 2. Go to `node_modules` ➜ `react-native-sound-detection` and add `RNSoundDetection.xcodeproj`
@@ -40,7 +40,10 @@ This library simply detects whether tracks exist on a media file (Video/Mp3/etc)
 ```javascript
 import RNSoundDetection from 'react-native-sound-detection';
 // use a remote or local url
-RNSoundDetection.getTracks('https://video.com.mp4', (tracks) => {
-	console.log(tracks) // includes video and audio tracks
-})
+const tracks = await RNSoundDetection.getTracks('https://video.com.mp4')
+console.log(tracks)
+// [{ type: 'video' | 'audio', lang: 'eng', mime?: 'mp4' }]
+// MIME is only available on Android
 ```
+
+
