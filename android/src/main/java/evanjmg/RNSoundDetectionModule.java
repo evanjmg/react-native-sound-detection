@@ -10,9 +10,10 @@ import android.media.AudioManager;
 import java.io.IOException;
 import com.google.gson.Gson;
 import android.util.Log;
+import com.facebook.react.bridge.LifecycleEventListener;
 
-public class RNSoundDetectionModule extends ReactContextBaseJavaModule {
-  private final MediaPlayer mediaPlayer;
+public class RNSoundDetectionModule extends ReactContextBaseJavaModule implements LifecycleEventListener {
+  private MediaPlayer mediaPlayer;
   private final ReactApplicationContext reactContext;
   private static final String ON_PREPARED = "OnPreparedEvent";
   public RNSoundDetectionModule(ReactApplicationContext reactContext) {
@@ -48,8 +49,12 @@ public class RNSoundDetectionModule extends ReactContextBaseJavaModule {
       cb.invoke(e.toString(), null);
     }
   }
+  public void onHostResume() {}
+  public void onHostPause() {
+    this.onHostDestroy();
+  }
   public void onHostDestroy() {
-    if (this.mediaPlayer) {
+    if (this.mediaPlayer != null) {
       this.mediaPlayer.release();
       this.mediaPlayer = null;
     }
