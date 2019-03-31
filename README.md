@@ -2,7 +2,7 @@
 # react-native-sound-detection
 
 This library simply gets the audio/video tracks and their type. This is to detect whether they exist on a media file (Video/Mp3/etc) in Android and iOS React Native.
-Note: Skip 2.0.0 as it's corrupted, use 2.0.1
+**Note**: Skip 2.0.0 as it's corrupted, use 2.0.2
 ## Getting started
 
 `$ npm install react-native-sound-detection --save`
