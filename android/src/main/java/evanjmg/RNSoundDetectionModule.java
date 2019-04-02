@@ -33,11 +33,11 @@ public class RNSoundDetectionModule extends ReactContextBaseJavaModule implement
           public void onPrepared(MediaPlayer mp) {
             try {
               MediaPlayer.TrackInfo[] tracks = mp.getTrackInfo();
-              mp.release();
               Gson gson = new Gson();
 
               cb.invoke(gson.toJson(tracks), null);
             } catch (Exception e) {
+              mp.release();
               cb.invoke(e.toString(), null);
             }
 
@@ -51,7 +51,6 @@ public class RNSoundDetectionModule extends ReactContextBaseJavaModule implement
   }
   public void onHostResume() {}
   public void onHostPause() {
-    this.onHostDestroy();
   }
   public void onHostDestroy() {
     if (this.mediaPlayer != null) {
